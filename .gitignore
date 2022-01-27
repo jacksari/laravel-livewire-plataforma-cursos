@@ -1,6 +1,6 @@
 /node_modules
 /public/hot
-/public/storage/image/cursos/*.png
+/public/storage
 /storage/*.key
 /vendor
 .env

@@ -13,7 +13,15 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+            outline: {
+                red: '3px solid #f9abbf',
+            }
         },
+    },
+
+    corePlugins: {
+        // ...
+        container: false,
     },
 
     variants: {

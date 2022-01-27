@@ -139,8 +139,8 @@
                         </x-slot>
                     </x-jet-dropdown>
                     @else
-                        <a href="{{ route('login')  }}" class="text-sm text-gray-700">Login</a>
-                        <a href="{{ route('register')  }}" class="text-sm text-gray-700">Register</a>
+                        <a href="{{ route('login')  }}" class="btn-secondary">Iniciar sesión</a>
+                        <a href="{{ route('register')  }}" class="btn-primary">Registro</a>
                     @endauth
                 </div>
             </div>
@@ -242,10 +242,10 @@
         @else
             <div class="py-1 border-t border-gray-200">
                 <x-jet-responsive-nav-link href="{{ route('login')  }}" :active="request()->routeIs('login')">
-                    Login
+                    Iniciar sesión
                 </x-jet-responsive-nav-link>
                 <x-jet-responsive-nav-link href="{{ route('register')  }}" :active="request()->routeIs('register')">
-                    Register
+                    Registro
                 </x-jet-responsive-nav-link>
             </div>
         @endauth

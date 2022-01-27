@@ -25,7 +25,7 @@ class LessonFactory extends Factory
             'name' => $this->faker->sentence(),
             'url' => 'https://youtu.be/Ryc5p2sn0w0',
             'iframe' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/Ryc5p2sn0w0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-            'platform_is' => 1
+            'platform_id' => 1
         ];
     }
 }

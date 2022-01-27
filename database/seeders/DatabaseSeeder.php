@@ -1,8 +1,6 @@
 <?php
 
 namespace Database\Seeders;
-
-use App\Models\Platform;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PriceSeeder::class);
         $this->call(CategorySeeder::class);
 
-        $this->call(Platform::class);
+        $this->call(PlatformSeeder::class);
 
         $this->call(CourseSeeder::class);
 

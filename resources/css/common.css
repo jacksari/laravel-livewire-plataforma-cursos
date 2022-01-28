@@ -29,3 +29,19 @@
 .plyr--video {
     height: 100%;
 }
+
+.min-screen-learning{
+    height: 100vh;
+}
+.min-screen-learning2{
+    height: 39rem;
+}
+
+.player-video-container{
+    height: 600px;
+
+}
+
+.max-w-8xl{
+    max-width: 90rem;
+}

@@ -27,6 +27,6 @@ class CourseController extends Controller
     }
 
     public function learning(Course $course){
-        return view('courses.learning', compact('course'));
+        return view('courses.learning', compact('course'))->layout('layouts.learning');
     }
 }

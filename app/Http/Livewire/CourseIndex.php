@@ -20,7 +20,7 @@ class CourseIndex extends Component
         $courses = Course::where('status', '3')
                             ->category($this->category_id)
                             ->level($this->level_id)
-            ->latest('id')->paginate(2);
+            ->latest('id')->paginate(8);
         $categories = Category::all();
         $levels = Level::all();
 

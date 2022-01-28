@@ -57,7 +57,7 @@
         </div>
     </section>
 
-    <section class="bg-gray-50">
+    <section class="bg-gray-100">
         <div class="container py-16 text-center">
             <h2 class="text-3xl font-medium text-gray-700">ÚLTIMOS CURSOS</h2>
             <p class=" text-md my-4 text-gray-700">Enterate cuales son los ultimos cursos subidos</p>

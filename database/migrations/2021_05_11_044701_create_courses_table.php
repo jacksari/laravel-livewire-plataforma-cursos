@@ -20,6 +20,8 @@ class CreateCoursesTable extends Migration
             $table->string('subtitle');
             $table->text('description');
 
+            $table->string('video');
+
             $table->enum('status',[
                 \App\Models\Course::BORRADOR,
                 \App\Models\Course::PUBLICADO,

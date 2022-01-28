@@ -3,7 +3,7 @@
 <article class="bg-white rounded-md overflow-hidden shadow flex flex-col">
     <div class="relative bg-black">
         <img src="{{asset(str_replace("public", "", $course->image->url))}}" alt="">
-        <p class="absolute top-2 right-2 bg-pink-500 rounded text-white px-3">{{ $course->category->name }}</p>
+        <p class="absolute top-2 right-2 bg-primary-500 rounded text-white px-3">{{ $course->category->name }}</p>
     </div>
 
     <div class="p-4 text-left flex-1 flex flex-col justify-between">

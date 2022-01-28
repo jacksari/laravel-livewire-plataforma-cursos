@@ -5,10 +5,10 @@
     @apply bg-white shadow px-4 py-1 rounded-lg text-gray-700 font-medium;
 }
 .btn-primary{
-    @apply bg-red-500 rounded-md px-4 py-1 text-center border-2 border-red-500 text-white hover:bg-red-600 transition duration-500 ease-in-out cursor-pointer;
+    @apply bg-primary-500 rounded-md px-4 py-1 text-center border-2 border-primary-500 text-white hover:bg-primary-600 transition duration-500 ease-in-out cursor-pointer;
 }
 .btn-secondary{
-    @apply text-red-500 rounded-md px-4 py-1 text-center border-2 border-red-500  transition duration-500 ease-in-out cursor-pointer;
+    @apply text-primary-500 rounded-md px-4 py-1 text-center border-2 border-primary-500  transition duration-500 ease-in-out cursor-pointer;
 }
 @media(min-width: 640px){
     .container{

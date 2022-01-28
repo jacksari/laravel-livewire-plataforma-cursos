@@ -102,8 +102,16 @@
                                 <h6 class="text-sm text-primary-500">{{ '@'.\Illuminate\Support\Str::slug($course->teacher->name, '') }}</h6>
                             </div>
                         </div>
-                        <div class="w-full mt-4">
-                            <button class="btn btn-primary w-full">Inscribirme ahora</button>
+                        <div class="w-full mt-4 flex">
+                            @can('enrolled', $course)
+                                <a href="{{ route('courses.learning', $course) }}" class="btn btn-primary w-full">Continuar con el curso</a>
+                            @else
+                                <form class="w-full" action="{{ route('courses.enrolled', $course) }}" method="post">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary w-full">Inscribirme ahora</button>
+                                </form>
+                            @endcan
+
                         </div>
                     </div>
                     <div class="bg-white shadow p-4 mt-8 hidden md:block">

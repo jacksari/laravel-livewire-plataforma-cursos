@@ -22,3 +22,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/cursos', [\App\Http\Controllers\CourseController::class, 'index'])->name('courses.index');
 
 Route::get('/cursos/{course}', [\App\Http\Controllers\CourseController::class, 'show'])->name('courses.show');
+
+Route::post('/courses/{course}/enrolled', [\App\Http\Controllers\CourseController::class, 'enrolled'])
+    ->middleware('auth')
+    ->name('courses.enrolled');
+
+Route::get('/learning/{course}', function (){
+    return 'Aqui se verá el curso';
+})->name('courses.learning');

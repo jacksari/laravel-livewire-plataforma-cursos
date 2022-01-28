@@ -21,3 +21,11 @@
         @apply px-8;
     }
 }
+
+:root{
+    --plyr-color-main: #f02e5e;
+}
+
+.plyr--video {
+    height: 100%;
+}

@@ -27,6 +27,4 @@ Route::post('/courses/{course}/enrolled', [\App\Http\Controllers\CourseControlle
     ->middleware('auth')
     ->name('courses.enrolled');
 
-Route::get('/learning/{course}', function (){
-    return 'Aqui se verá el curso';
-})->name('courses.learning');
+Route::get('/learning/{course}', [\App\Http\Controllers\CourseController::class, 'learning'])->name('courses.learning');

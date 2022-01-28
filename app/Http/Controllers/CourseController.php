@@ -25,4 +25,8 @@ class CourseController extends Controller
         $course->students()->attach(auth()->user()->id);
         return redirect()->route('courses.learning', $course);
     }
+
+    public function learning(Course $course){
+        return view('courses.learning', compact('course'));
+    }
 }

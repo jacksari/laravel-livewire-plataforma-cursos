@@ -1,4 +1,4 @@
-<footer class=" flex flex-col absolute  w-full bg-white">
+<footer class="z-0 flex flex-col absolute  w-full bg-white">
     <div class="py-10 md:py-16 w-full mx-auto max-w-7xl sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-start md:justify-between">
         <div class="flex flex-col w-full md:w-1/5 lg:w-2/5 pr-12 px-10 md:px-4 mb-6 md:mb-0">
             <h3 class="text-gray-900 text-lg font-bold mb-3">Contáctanos</h3>

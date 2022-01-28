@@ -6,12 +6,7 @@
                 <h1 class="text-white font-bold text-5xl">Domina la tecnología con JackSari</h1>
                 <p class="text-white text-lg mt-4">Aprende Laravel con los mejores cursos de programación. Contamos con cursos tanto teóricos como prácticos.</p>
 
-                <div class="bg-white flex justify-between items-center p-1 rounded mt-4">
-                    <input placeholder="Buscar curso" type="text" class="pl-3 w-full border-none h-9 shadow-none flex-1 right-0 focus:ring-0 pl-2"/>
-                    <div class="p-1 flex justify-center items-center w-9 h-9 btn-primary">
-                        <i class="fas fa-search text-white text-lg"></i>
-                    </div>
-                </div>
+                @livewire('search')
             </div>
         </div>
     </section>
@@ -48,10 +43,10 @@
         <div class="container py-16 text-center">
              <h2 class="text-white text-4xl font-medium">Get Our Updates</h2>
             <p class="text-white text-md my-4">Find out about events and other news</p>
-            <div class="bg-white flex justify-between items-center p-1 rounded mt-4 w-1/2 mx-auto">
+            <div class="bg-white flex justify-between items-center p-1 rounded mt-4 w-full md:w-1/2 mx-auto">
                 <input placeholder="ejemplo@correo.com" type="text" class="pl-3 w-full border-none h-9 shadow-none flex-1 right-0 focus:ring-0 pl-2"/>
                 <div class="btn btn-primary flex justify-center items-center h-9">
-                    <p class=" text-white text-lg px-3">Subscriber</p>
+                    <p class=" text-white text-lg px-1 md:px-3">Subscriber</p>
                 </div>
             </div>
         </div>
@@ -65,6 +60,15 @@
                 @foreach($courses as $course)
                     <x-course-item :course="$course"/>
                 @endforeach
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-200">
+        <div class="container py-16 text-center">
+            <h2 class="text-3xl font-medium text-gray-700">BUSCA TU CURSO IDEAL</h2>
+            <div class="w-full md:w-1/2 mx-auto mt-8">
+                @livewire('search')
             </div>
         </div>
     </section>

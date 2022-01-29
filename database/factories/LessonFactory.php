@@ -23,8 +23,9 @@ class LessonFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence(),
-            'url' => 'https://youtu.be/Ryc5p2sn0w0',
-            'iframe' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/Ryc5p2sn0w0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+            'url' => 'https://youtu.be/3G6zwzLYPko',
+            'time' => $this->faker->randomDigitNotNull(),
+            'key' => '3G6zwzLYPko',
             'platform_id' => 1
         ];
     }

@@ -11,6 +11,10 @@ class Lesson extends Model
 
     use HasFactory;
 
+    public function getCompleteAttribute(){
+        return $this->users->contains(auth()->user()->id);
+    }
+
     // Uno a uno
     public function description(){
         return $this->hasOne(Description::class);

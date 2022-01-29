@@ -10,6 +10,17 @@
             'route' => route('courses.index'),
             'active'=> request()->routeIs('courses.*')
         ],
+        [
+            'name' => 'Blog',
+            'route' => route('blogs.index'),
+            'active'=> request()->routeIs('blogs.*')
+        ],
+        [
+            'name' => 'Contacto',
+            'route' => route('contact.index'),
+            'active'=> request()->routeIs('contact.index')
+        ],
+
     ];
 @endphp
 

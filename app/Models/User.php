@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'slug'
     ];
 
     /**
@@ -63,6 +64,11 @@ class User extends Authenticatable
     public function profile(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(Profile::class);
+    }
+
+    public function teacher(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Teacher::class);
     }
 
     // De uno a muchos

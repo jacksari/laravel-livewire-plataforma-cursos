@@ -11,6 +11,11 @@
             'active'=> request()->routeIs('courses.*')
         ],
         [
+            'name' => 'Profesores',
+            'route' => route('teachers.index'),
+            'active'=> request()->routeIs('teachers.*')
+        ],
+        [
             'name' => 'Blog',
             'route' => route('blogs.index'),
             'active'=> request()->routeIs('blogs.*')

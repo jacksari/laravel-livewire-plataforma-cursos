@@ -21,7 +21,7 @@ class CourseSeeder extends Seeder
      */
     public function run()
     {
-        $courses = Course::factory(40)->create();
+        $courses = Course::factory(10)->create();
 
 
         foreach ( $courses as $course ){
@@ -38,15 +38,15 @@ class CourseSeeder extends Seeder
             Audience::factory(4)->create([
                 'course_id' => $course->id,
             ]);
-            $sections = Section::factory(8)->create([
+            $sections = Section::factory(3)->create([
                 'course_id' => $course->id,
             ]);
             foreach ($sections as $section){
-                $lessons = Lesson::factory(4)->create([
+                $lessons = Lesson::factory(2)->create([
                     'section_id' => $section->id,
                 ]);
                 foreach ($lessons as $lesson){
-                    Description::factory(4)->create([
+                    Description::factory(2)->create([
                         'lesson_id' => $lesson->id,
                     ]);
                 }

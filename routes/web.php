@@ -27,9 +27,14 @@ Route::post('/courses/{course}/enrolled', [\App\Http\Controllers\CourseControlle
     ->middleware('auth')
     ->name('courses.enrolled');
 
-Route::get('/learning/{course}', \App\Http\Livewire\CourseLearning::class)->name('courses.learning');
+Route::get('/learning/{course}', \App\Http\Livewire\CourseLearning::class)->middleware('auth')->name('courses.learning');
 
 Route::get('/contacto', [\App\Http\Controllers\ContactController::class, 'index'])->name('contact.index');
 
 
 Route::get('/blogs', [\App\Http\Controllers\BlogController::class, 'index'])->name('blogs.index');
+
+
+Route::get('/profesores', [\App\Http\Controllers\TeacherController::class, 'index'])->name('teachers.index');
+
+Route::get('/profesores/{teacher}', [\App\Http\Controllers\TeacherController::class, 'show'])->name('teachers.show');

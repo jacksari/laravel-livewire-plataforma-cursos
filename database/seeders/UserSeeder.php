@@ -18,7 +18,8 @@ class UserSeeder extends Seeder
             'name' => 'Jack Sari',
             'email' => 'janasarii@gmail.com',
             'password' => bcrypt('112345678'),
-            'profile_photo_path' => 'https://ui-avatars.com/api/?name=J+S'
+            'profile_photo_path' => 'https://ui-avatars.com/api/?name=J+S',
+            'slug' => 'jack-sari'
         ]);
 
         User::factory(99)->create();

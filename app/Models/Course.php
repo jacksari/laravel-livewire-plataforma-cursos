@@ -62,11 +62,14 @@ class Course extends Model
         return $this->hasMany(Section::class);
     }
 
-    // Relacion uno a mucho inversa
+    // Uno a uno
     public function teacher()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(Teacher::class);
     }
+
+    // Relacion uno a mucho inversa
+
 
     public function level(){
         return $this->belongsTo(Level::class);

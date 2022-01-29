@@ -70,6 +70,9 @@
                                               @click="open = !open"
                                               class="pt-2 pb-2 px-4 border-t-2 bg-white">
                                             @foreach($section->lessons as $lesson)
+                                                 {{-- TODO agregar suma de minutos --}}
+                                                {{-- TODO agregar cantidad de minutos --}}
+                                            {{-- TODO agregar cantidad de lecciones a la sección --}}
                                                 <div class="flex items-center py-1">
                                                     <i class="far fa-play-circle text-primary-500 mr-2"></i>
                                                     <p>{{ $lesson->name }}</p>

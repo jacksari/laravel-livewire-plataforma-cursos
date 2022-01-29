@@ -10,7 +10,7 @@
         <h3 class="text-lg text-gray-700">{{ strlen($course->title) > 48 ? substr($course->title, 0, 48)."..." : $course->title }} </h3>
 
         <div class="">
-            <p class="text-sm text-gray-500 my-2">Prof: {{ $course->teacher->name }}</p>
+            <p class="text-sm text-gray-500 my-2">Prof: {{ $course->teacher->user->name }}</p>
             <div class="flex justify-between items-center mb-3">
                 <div class="flex items-center">
                     <i class="fas fa-star {{$course->rating >= 1 ? 'text-yellow-300' : 'text-yellow-200'}}"></i>

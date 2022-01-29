@@ -27,7 +27,7 @@
                                 <!-- Building a Progress Ring: https://css-tricks.com/building-progress-ring-quickly/ -->
                                 <svg class="w-10 h-10 mr-2">
                                     <circle
-                                        class="text-gray-300"
+                                        class="text-primary-500"
                                         stroke-width="3"
                                         stroke="currentColor"
                                         fill="transparent"
@@ -36,10 +36,10 @@
                                         cy="20"
                                     />
                                     <circle
-                                        class="text-primary-500"
+                                        class="text-gray-300"
                                         stroke-width="3"
                                         :stroke-dasharray="100"
-                                        :stroke-dashoffset="40"
+                                        :stroke-dashoffset="{{ $this->advance }}"
                                         stroke-linecap="round"
                                         stroke="currentColor"
                                         fill="transparent"
@@ -52,7 +52,7 @@
                                     <i class="fab fa-angellist"></i>
                                 </span>
                             </div>
-                            <p class="text-white">20% Tu progreso</p>
+                            <p class="text-white">{{ $this->advance }}% Tu progreso</p>
                         </div>
                     </div>
 
@@ -225,7 +225,14 @@
 
                         <div class="responsive-container">
 
+
                             <x-video-lesson :key="$current->key"/>
+
+                            <div class="absolute z-50 left-0 top-4 w-full flex">
+                                <div class="bg-background w-auto">
+                                    <p class="text-white text-sm px-3 py-2">{{ $this->index + 1 }}. {{ $current->name  }}</p>
+                                </div>
+                            </div>
 
                             @if($this->previous)
                                 <div wire:click="changeLesson({{ $this->previous }})" class="absolute previous-btn-video bg-transparent border-2 border-l-0 cursor-pointer border-gray-500">
@@ -246,13 +253,25 @@
                     <div class="flex justify-center items-center flex-1">
                         <!--actual component start-->
                         <div class="w-full h-full" x-data="setup()">
-                            <ul class="flex justify-start items-center m-4">
-                                <template x-for="(tab, index) in tabs" :key="index">
-                                    <li class="cursor-pointer py-2 px-4 text-gray-500 border-b-2"
-                                        :class="activeTab===index ? 'text-primary-500 border-primary-500 font-bold' : ''" @click="activeTab = index"
-                                        x-text="tab"></li>
-                                </template>
-                            </ul>
+                            <div class="flex justify-between items-center m-4">
+                                <div class="flex justify-start items-center">
+                                    <template x-for="(tab, index) in tabs" :key="index">
+                                        <div class="cursor-pointer py-2 px-4 text-gray-500 border-b-2"
+                                             :class="activeTab===index ? 'text-primary-500 border-primary-500 font-bold' : ''" @click="activeTab = index"
+                                             x-text="tab"
+                                        ></div>
+                                    </template>
+                                </div>
+                                <div wire:click="completed" class="py-2 px-4 flex items-center">
+                                    <p class="text-sm text-gray-500 mr-2">Marcar lección como culminada</p>
+                                    @if(!$current->complete)
+                                        <i class="fas fa-toggle-off text-gray-500 text-2xl cursor-pointer"></i>
+                                    @else
+                                        <i class="fas fa-toggle-on text-primary-500 text-2xl cursor-pointer"></i>
+                                    @endif
+
+                                </div>
+                            </div>
 
                             <div class="w-full bg-white p-8">
                                 <div x-show="activeTab===0">
@@ -294,9 +313,9 @@
                                                 @foreach($section->lessons as $key => $lesson)
                                                     <div class="{{ $lesson->id == $current->id ? 'flex items-center px-2 py-2 bg-gray-300' : 'px-2 py-2 flex items-center' }}">
                                                         @if($lesson->complete)
-                                                            <i class="fas fa-check-square mr-3 text-gray-500 text-lg"></i>
+                                                            <i wire:click="toggle({{ $lesson }})" class="fas fa-check-square mr-3 text-gray-500 text-lg"></i>
                                                         @else
-                                                            <i class="far fa-square mr-3 text-gray-500 text-lg"></i>
+                                                            <i wire:click="toggle({{ $lesson }})" class="far fa-square mr-3 text-gray-500 text-lg"></i>
                                                         @endif
 
 
@@ -359,5 +378,11 @@
                 percent: 0,
             }
         }
+
+        document.addEventListener('livewire:load', function () {
+            console.log('Cargando...')
+
+
+        })
     </script>
 </div>

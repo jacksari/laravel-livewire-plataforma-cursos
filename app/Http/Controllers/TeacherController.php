@@ -10,6 +10,7 @@ class TeacherController extends Controller
     public function index(){
         //return $teachers = Teacher::paginate(8);
         return view('teachers.index');
+
     }
 
     public function show(Teacher $teacher){

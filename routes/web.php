@@ -38,3 +38,6 @@ Route::get('/blogs', [\App\Http\Controllers\BlogController::class, 'index'])->na
 Route::get('/profesores', [\App\Http\Controllers\TeacherController::class, 'index'])->name('teachers.index');
 
 Route::get('/profesores/{teacher}', [\App\Http\Controllers\TeacherController::class, 'show'])->name('teachers.show');
+
+
+Route::get('/learning', [\App\Http\Controllers\LearningController::class, 'index'])->name('learning.index');

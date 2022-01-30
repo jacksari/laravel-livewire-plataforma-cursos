@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Jack Sari',
             'email' => 'janasarii@gmail.com',
-            'password' => bcrypt('112345678'),
+            'password' => bcrypt('12345678'),
             'profile_photo_path' => 'https://ui-avatars.com/api/?name=J+S',
             'slug' => 'jack-sari'
         ]);

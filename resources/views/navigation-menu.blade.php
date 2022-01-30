@@ -25,6 +25,11 @@
             'route' => route('contact.index'),
             'active'=> request()->routeIs('contact.index')
         ],
+        [
+            'name' => 'Mi aprendizaje',
+            'route' => route('learning.index'),
+            'active'=> request()->routeIs('learning.index')
+        ],
 
     ];
 @endphp

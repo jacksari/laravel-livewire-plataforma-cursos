@@ -57,8 +57,26 @@
                                 <article class="bg-gray-100 shadow  cursor-pointer  my-1 rounded-md overflow-hidden">
                                     <div x-data="{ open: false }">
                                         <div @click="open = !open" class="px-3 py-3 flex justify-between items-center">
-                                            <h3 class="text-base font-medium">{{ $key + 1 }}. {{ $section->name}}</h3>
-                                            <i :class="open ? 'text-lg fas fa-plus text-primary-500 transform rotate-45 transition duration-500 ease-in-out' : 'text-lg fas fa-plus text-primary-500 transition duration-500 ease-in-out'" class=""></i>
+                                            <div class="flex items-center">
+                                                <i :class="open ? 'mr-2 text-md fas fa-plus text-primary-500 transform rotate-45 transition duration-500 ease-in-out' : 'mr-2 text-md fas fa-plus text-primary-500 transition duration-500 ease-in-out'" class=""></i>
+
+                                                <h3 class="text-base font-semibold">{{ $key + 1 }}. {{ $section->name}}</h3>
+                                            </div>
+                                            @php
+                                                $times = 0;
+                                                $lessons = $section->lessons;
+                                                foreach ($lessons as $lec){
+                                                    $times = $times + $lec->time;
+                                                }
+
+                                            @endphp
+
+                                            <div class="flex items-center">
+                                                <p class="text-sm text-gray-500">{{ $section->lessons->count() }} clases </p>
+                                                <p class="text-xs text-gray-500 mx-1">•</p>
+                                                <p class="text-sm text-gray-500">{{ $times }} minutos</p>
+
+                                            </div>
                                         </div>
                                         <div  x-transition:enter="transition ease-out duration-300"
                                               x-transition:enter-start="opacity-0 scale-90"
@@ -70,12 +88,13 @@
                                               @click="open = !open"
                                               class="pt-2 pb-2 px-4 border-t-2 bg-white">
                                             @foreach($section->lessons as $lesson)
-                                                 {{-- TODO agregar suma de minutos --}}
-                                                {{-- TODO agregar cantidad de minutos --}}
-                                            {{-- TODO agregar cantidad de lecciones a la sección --}}
-                                                <div class="flex items-center py-1">
-                                                    <i class="far fa-play-circle text-primary-500 mr-2"></i>
-                                                    <p>{{ $lesson->name }}</p>
+
+                                                <div class="flex items-center justify-between py-1">
+                                                    <div class="flex items-center">
+                                                        <i class="far fa-play-circle text-primary-500 mr-2"></i>
+                                                        <p class="text-sm text-gray-500">{{ $lesson->name }}</p>
+                                                    </div>
+                                                    <p class="text-sm text-gray-500">{{ $lesson->time }} min</p>
                                                 </div>
 
                                             @endforeach
@@ -99,10 +118,10 @@
                 <div class="order-1 md:order-2 col-span-3 md:col-span-1">
                     <div class="bg-white shadow p-4 ">
                         <div class="flex items-center">
-                            <img class="h-12 w-12 rounded-full" src="{{ $course->teacher->profile_photo_path }}" alt="{{ $course->teacher->name }}">
+                            <img class="h-12 w-12 rounded-full object-cover" src="{{ $course->teacher->image }}" alt="{{ $course->teacher->user->name }}">
                             <div class="ml-4">
-                                <h5 class="text-lg">{{ $course->teacher->name }}</h5>
-                                <h6 class="text-sm text-primary-500">{{ '@'.\Illuminate\Support\Str::slug($course->teacher->name, '') }}</h6>
+                                <h5 class="text-lg">{{ $course->teacher->user->name }}</h5>
+                                <a href="{{ route('teachers.show', $course->teacher) }}" class="text-sm text-primary-500">{{ '@'.\Illuminate\Support\Str::slug($course->teacher->user->name, '') }}</a>
                             </div>
                         </div>
                         <div class="w-full mt-4 flex">

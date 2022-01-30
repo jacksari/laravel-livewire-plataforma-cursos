@@ -17,7 +17,7 @@ class Teacher extends Model
     }
 
     public function courses(){
-        return $this->hasMany(Course::class);
+        return $this->hasMany(Course::class)->where('status', '3');
     }
 
     public function getRouteKeyName()

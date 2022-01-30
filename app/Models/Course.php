@@ -24,6 +24,10 @@ class Course extends Model
         }
     }
 
+    public function getAdvanceAttribute(){
+        return 12;
+    }
+
     // Query scopes
     public function scopeCategory($query, $category_id){
         if($category_id){

@@ -10,6 +10,13 @@ use Spatie\Permission\Models\Permission;
 class RolController extends Controller
 {
 
+    public function __construct(){
+        $this->middleware('can:Leer rol')->only('index');
+        $this->middleware('can:Crear rol')->only('create','store');
+        $this->middleware('can:Actualizar rol')->only('edit','update');
+        $this->middleware('can:Eliminar rol')->only('destroy');
+    }
+
     public function index()
     {
         $roles = Role::all();
@@ -19,6 +26,7 @@ class RolController extends Controller
 
     public function create()
     {
+
         $permissions = Permission::all();
 
         return view('admin.roles.create', compact('permissions'));

@@ -12,15 +12,15 @@
 
 <div class="w-full my-4">
     <label class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase">Permisos</label>
-    <div class="grid grid-cols-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 px-2">
         @foreach($permissions as $permission)
-            <label for="">
-                {!! Form::checkbox('permissions[]', $permission->id, null, ['class' => 'mr-1']) !!}
-                {!! $permission->name !!}
+            <label for="" class="flex items-center my-1">
+                {!! Form::checkbox('permissions[]', $permission->id, null, ['class' => 'mr-2']) !!}
+                <span class="text-sm md:text-base">{!! $permission->name !!}</span>
             </label>
         @endforeach
     </div>
     @error('permissions')
-    <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
+        <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
     @enderror
 </div>

@@ -4,7 +4,7 @@
         {{ 'Crear roles' }}
     </x-slot>
 
-    <section class="bg-gray-100 text-gray-600 px-4 py-8">
+    <section class="bg-gray-100 text-gray-600 px-2 sm:px-4 py-4 sm:py-8">
         <div class="container">
             {{--w-full max-w-2xl mx-auto--}}
             <div class="w-full max-w-7xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">

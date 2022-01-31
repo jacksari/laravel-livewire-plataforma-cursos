@@ -62,6 +62,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+
     // Relacion uno a uno
     public function profile(): \Illuminate\Database\Eloquent\Relations\HasOne
     {

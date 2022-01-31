@@ -9,12 +9,14 @@
                 [
                     'name' => 'Ver usuarios',
                     'route' => route('admin.users.index'),
-                    'active'=> request()->routeIs('admin.users.index')
+                    'active'=> request()->routeIs('admin.users.index'),
+                    'can' => 'Leer usuarios'
                 ],
                 [
                     'name' => 'Crear usuario',
                     'route' => route('admin.users.create'),
-                    'active'=> request()->routeIs('admin.users.create')
+                    'active'=> request()->routeIs('admin.users.create'),
+                    'can' => 'Crear usuarios'
                 ],
             ],
         ],
@@ -27,17 +29,21 @@
                 [
                     'name' => 'Ver roles',
                     'route' => route('admin.roles.index'),
-                    'active'=> request()->routeIs('admin.roles.index')
+                    'active'=> request()->routeIs('admin.roles.index'),
+                    'can' => 'Leer rol'
                 ],
                 [
                     'name' => 'Crear roles',
                     'route' => route('admin.roles.create'),
-                    'active'=> request()->routeIs('admin.roles.create')
+                    'active'=> request()->routeIs('admin.roles.create'),
+                    'can' => 'Crear rol'
                 ],
             ],
         ],
     ];
 @endphp
+
+{{-- TODO los links deben sombrearse cuando esten activos --}}
 
 <div
     x-show.in.out.opacity="isSidebarOpen"
@@ -170,18 +176,21 @@
                     </a>
                     @if($link['links'])
                         @foreach($link['links'] as $nav_links)
-                            <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
-                                <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                                <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
+                            @can($nav_links['can'])
+                                <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
+                                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
+                                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
 
-                                <a
-                                    href="{{ $nav_links['route'] }}"
-                                    role="menuitem"
-                                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                                >
-                                    {{ $nav_links['name'] }}
-                                </a>
-                            </div>
+                                    <a
+                                        href="{{ $nav_links['route'] }}"
+                                        role="menuitem"
+                                        class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
+                                    >
+                                        {{ $nav_links['name'] }}
+                                    </a>
+                                </div>
+                            @endcan
+
                         @endforeach
 
                     @endif

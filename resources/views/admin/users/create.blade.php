@@ -1,7 +1,7 @@
 <x-admin-layout>
 
     <x-slot name="header">
-        {{ 'Dashboard' }}
+        {{ 'Crear usuario' }}
     </x-slot>
 
 </x-admin-layout>

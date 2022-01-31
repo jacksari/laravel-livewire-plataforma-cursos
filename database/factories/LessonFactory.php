@@ -25,7 +25,7 @@ class LessonFactory extends Factory
             'name' => $this->faker->sentence(),
             'url' => 'https://youtu.be/3G6zwzLYPko',
             'time' => $this->faker->randomDigitNotNull(),
-            'key' => '3G6zwzLYPko',
+            'key' => '78701544',
             'platform_id' => 1
         ];
     }

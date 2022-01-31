@@ -39,7 +39,7 @@ class CourseFactory extends Factory
             'level_id' => Level::all()->random()->id,
             'category_id' => Category::all()->random()->id,
             'price_id' => Price::all()->random()->id,
-            'video' => 'bj2KT0Jh1uo'
+            'video' => '78701544'
         ];
     }
 }

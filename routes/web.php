@@ -40,4 +40,4 @@ Route::get('/profesores', [\App\Http\Controllers\TeacherController::class, 'inde
 Route::get('/profesores/{teacher}', [\App\Http\Controllers\TeacherController::class, 'show'])->name('teachers.show');
 
 
-Route::get('/learning', [\App\Http\Controllers\LearningController::class, 'index'])->name('learning.index');
+Route::get('/learning', [\App\Http\Controllers\LearningController::class, 'index'])->middleware('auth')->name('learning.index');

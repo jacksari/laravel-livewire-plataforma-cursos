@@ -33,6 +33,7 @@
 
     ];
 @endphp
+{{-- TODO solo mostar mi aprendizaje cuando está autenticado --}}
 
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100 shadow">
     <!-- Primary Navigation Menu -->
@@ -136,7 +137,13 @@
                             </div>
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                                {{ __('Perfil') }}
+                            </x-jet-dropdown-link>
+                            <x-jet-dropdown-link href="{{ route('learning.index') }}">
+                                {{ __('Mis cursos') }}
+                            </x-jet-dropdown-link>
+                            <x-jet-dropdown-link href="{{ route('instructor.courses.index') }}">
+                                {{ __('Instructor') }}
                             </x-jet-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -154,7 +161,7 @@
                                 <x-jet-dropdown-link href="{{ route('logout') }}"
                                                      onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Cerrar sesión') }}
                                 </x-jet-dropdown-link>
                             </form>
                         </x-slot>
@@ -208,7 +215,15 @@
                 <div class="mt-3 space-y-1">
                     <!-- Account Management -->
                     <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                        {{ __('Profile') }}
+                        {{ __('Perfil') }}
+                    </x-jet-responsive-nav-link>
+
+                    <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('learning.index')">
+                        {{ __('Mis cursos') }}
+                    </x-jet-responsive-nav-link>
+
+                    <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('instructor.courses.index')">
+                        {{ __('Instructor') }}
                     </x-jet-responsive-nav-link>
 
                     @if (Laravel\Jetstream\Jetstream::hasApiFeatures())

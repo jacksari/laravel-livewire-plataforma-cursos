@@ -27,7 +27,7 @@ class TeacherFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'image' => 'https://res.cloudinary.com/mikunaalli/image/upload/v1635936042/azwm3abvxplpnqo3pnau.png',
-            'content' => $this->faker->paragraph(),
+            'description' => $this->faker->paragraph(),
             'website' => 'https://www.jacksari.com/',
             'facebook' => 'https://www.facebook.com/jack.sari.37/',
             'twitter' => 'https://twitter.com/ssari1212',

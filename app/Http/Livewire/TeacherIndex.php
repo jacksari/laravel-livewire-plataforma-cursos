@@ -12,7 +12,7 @@ class TeacherIndex extends Component
 
     public function render()
     {
-        $teachers = Teacher::paginate(8);
+        $teachers = Teacher::latest('id')->paginate(8);
         return view('livewire.teacher-index', compact('teachers'));
     }
 }

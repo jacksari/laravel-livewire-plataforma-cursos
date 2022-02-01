@@ -40,6 +40,26 @@
                 ],
             ],
         ],
+        [
+            'name' => 'Profesores',
+            'icon' => 'fas fa-chalkboard-teacher',
+            'route' => route('admin.teachers.index'),
+            'active'=> request()->routeIs('admin.teachers.*'),
+            'links' => [
+                [
+                    'name' => 'Ver profesores',
+                    'route' => route('admin.teachers.index'),
+                    'active'=> request()->routeIs('admin.teachers.index'),
+                    'can' => 'Leer profesores'
+                ],
+                [
+                    'name' => 'Crear profesor',
+                    'route' => route('admin.teachers.create'),
+                    'active'=> request()->routeIs('admin.teachers.create'),
+                    'can' => 'Crear profesores'
+                ],
+            ],
+        ],
     ];
 @endphp
 

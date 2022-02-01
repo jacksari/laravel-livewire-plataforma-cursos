@@ -32,6 +32,32 @@ class PermissionSeeder extends Seeder
         ]);
 
         Permission::create([
+            'name' => 'Crear usuarios',
+        ]);
+        Permission::create([
+            'name' => 'Leer usuarios',
+        ]);
+        Permission::create([
+            'name' => 'Actualizar usuarios',
+        ]);
+        Permission::create([
+            'name' => 'Eliminar usuarios',
+        ]);
+
+        Permission::create([
+            'name' => 'Crear profesores',
+        ]);
+        Permission::create([
+            'name' => 'Leer profesores',
+        ]);
+        Permission::create([
+            'name' => 'Actualizar profesores',
+        ]);
+        Permission::create([
+            'name' => 'Eliminar profesores',
+        ]);
+
+        Permission::create([
            'name' => 'Crear cursos',
         ]);
         Permission::create([
@@ -57,17 +83,6 @@ class PermissionSeeder extends Seeder
             'name' => 'Eliminar blogs',
         ]);
 
-        Permission::create([
-            'name' => 'Crear usuarios',
-        ]);
-        Permission::create([
-            'name' => 'Leer usuarios',
-        ]);
-        Permission::create([
-            'name' => 'Actualizar usuarios',
-        ]);
-        Permission::create([
-            'name' => 'Eliminar usuarios',
-        ]);
+
     }
 }

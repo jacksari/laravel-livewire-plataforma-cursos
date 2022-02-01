@@ -195,3 +195,27 @@
     top: 9px;
     left: 13px;
 }
+
+
+.label-input{
+    @apply font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase;
+}
+
+@media(min-width: 768px){
+    .label-input{
+        @apply text-sm;
+    }
+}
+
+
+.input-form{
+    @apply p-1 px-2 appearance-none border-0 outline-none w-full text-gray-800;
+}
+
+.input-form:focus{
+    @apply border-0 ring-0 border-transparent ;
+}
+
+.ck .ck-editor {
+    width: 100%;
+}

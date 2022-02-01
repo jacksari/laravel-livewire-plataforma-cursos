@@ -17,10 +17,10 @@ class CreateTeachersTable extends Migration
             $table->id();
 
             $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->unique();
 
             $table->string('image');
-            $table->text('content');
+            $table->text('description');
             $table->string('website');
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();

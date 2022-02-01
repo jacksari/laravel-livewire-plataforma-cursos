@@ -28,7 +28,7 @@ class CreateCoursesTable extends Migration
                 \App\Models\Course::REVISION
             ])->default(\App\Models\Course::BORRADOR);
 
-            $table->string('slug');
+            $table->string('slug')->unique();
 
             $table->unsignedBigInteger('teacher_id');
             $table->unsignedBigInteger('level_id')->nullable();

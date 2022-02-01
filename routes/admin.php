@@ -11,3 +11,5 @@ Route::middleware(['can:Ver dashboard'])
 Route::resource('roles', \App\Http\Controllers\Admin\RolController::class)->names('roles');
 
 Route::resource('users', \App\Http\Controllers\Admin\UserController::class)->names('users');
+
+Route::resource('teachers', \App\Http\Controllers\Admin\TeacherController::class)->names('teachers');

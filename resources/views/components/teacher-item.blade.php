@@ -2,7 +2,7 @@
 
 <article class="bg-white rounded-md overflow-hidden shadow">
     <a class="" href="{{ route('teachers.show', $teacher) }}">
-        <img class="h-80 object-cover object-center" src="{{ $teacher->image }}" alt="{{ $teacher->user->name }}">
+        <img class="h-64 w-full object-cover" src="{{asset(str_replace("public", "storage", $teacher->image))}}" alt="{{ $teacher->user->name }}"/>
         <div class="p-2 text-center">
             <h3 class="text-base text-background font-semibold text-background">{{ $teacher->user->name }}</h3>
             <h4 class="text-sm text-background text-gray-500">{{ strlen($teacher->title) > 36 ? substr($teacher->title, 0, 36)."..." : $teacher->title }}</h4>

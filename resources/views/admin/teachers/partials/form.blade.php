@@ -101,3 +101,4 @@
     {!! Form::textarea('description', null, ['class' => 'input-form'. ($errors->has('description') ? ' border-primary-500 border-2' : ''), 'placeholder' => 'Escriba un contenido del profesor']) !!}
 
 </div>
+

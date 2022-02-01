@@ -14,6 +14,11 @@
                         <h3 class="font-semibold text-gray-800 text-sm sm:text-base text-center">Crear profesor</h3>
                     </div>
                 </div>
+
+                <div class="p-3 py-1 md:px-5 md:py-2 border-b border-gray-100 flex items-center justify-between">
+                    <input wire:keydown="limpiarPage" wire:model="search" class=" outline-none rounded-md border-gray-500 focus:ring-0 focus:border-gray-500" placeholder="Buscar docente" type="text">
+                </div>
+
                 <div class="p-3">
                     <div class="overflow-x-auto">
                         <table class="table-auto w-full">
@@ -43,31 +48,40 @@
                             </tr>
                             </thead>
                             <tbody class="text-sm divide-y divide-gray-100">
-                            @forelse($teachers as $key => $teacher)
+                            @forelse($users as $key => $user)
                                 <tr>
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="text-left">{{ $key + 1 }}</div>
                                     </td>
                                     <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">{{ $teacher->user->name }}</div>
+                                        <div class="text-left">{{ $user->name }}</div>
                                     </td>
                                     <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">{{ $teacher->user->email }}</div>
+                                        <div class="text-left">{{ $user->email }}</div>
                                     </td>
                                     <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">{{ strlen($teacher->title) > 40 ? substr($teacher->title, 0, 40)."..." : $teacher->title }}</div>
+                                        @if($user->teacher)
+                                            <div class="text-left">{{ strlen($user->teacher->title) > 40 ? substr($user->teacher->title, 0, 40)."..." : $user->teacher->title }}</div>
+                                        @endif
                                     </td>
                                     <td class="p-2 whitespace-nowrap text-center">
-                                        <img class="text-center h-8 w-8 rounded-full object-cover" src="{{asset(str_replace("public", "storage", $teacher->image))}}" alt="{{ $teacher->user->name }}">
+                                        @if($user->teacher)
+                                            <img class="text-center h-8 w-8 rounded-full object-cover" src="{{asset(str_replace("public", "storage", $user->teacher->image))}}" alt="{{ $user->name }}">
+
+                                        @endif
+
                                     </td>
                                     <td class="p-2 whitespace-nowrap">
-                                        <div class="text-left">{{ date('d/m/Y', strtotime($teacher->updated_at)) }}</div>
+                                        @if($user->teacher)
+                                            <div class="text-left">{{ date('d/m/Y', strtotime($user->teacher->updated_at)) }}</div>
+                                        @endif
+
                                     </td>
                                     <td class="p-2 whitespace-nowrap flex items-center justify-around">
-                                        <a class="btn" href="{{ route('admin.teachers.edit', $teacher) }}">
+                                        <a class="btn" href="{{ route('admin.teachers.edit', $user->teacher) }}">
                                             <i class="far fa-edit"></i>
                                         </a>
-                                        <form action="{{ route('admin.teachers.destroy', $teacher) }}" method="POST">
+                                        <form action="{{ route('admin.teachers.destroy', $user->teacher) }}" method="POST">
                                             @method('delete')
                                             @csrf
                                             <button class="btn" type="submit">
@@ -90,7 +104,7 @@
                             </tbody>
                         </table>
                         <div class="mt-4">
-                            {{ $teachers->links() }}
+                            {{ $users->links() }}
                         </div>
                     </div>
                 </div>

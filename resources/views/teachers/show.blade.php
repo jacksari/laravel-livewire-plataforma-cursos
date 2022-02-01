@@ -21,7 +21,7 @@
                    </div>
                    <div class="my-8">
                        <h2 class="text-background text-lg font-bold mb-2">Sobre mí</h2>
-                       <p>{{ $teacher->content }}</p>
+                       <p>{!! $teacher->description !!}</p>
                    </div>
                    <div class="my-8">
                        <h2 class="text-background text-lg font-bold mb-2">Mis cursos</h2>
@@ -34,7 +34,7 @@
 
                </div>
                <div class="col-span-2">
-                   <img class="h-48 w-48 rounded-full object-cover" src="{{ $teacher->image }}" alt="{{ $teacher->user->name }}">
+                   <img class="h-48 w-48 rounded-full object-cover" src="{{asset(str_replace("public", "storage", $teacher->image))}}" alt="{{ $teacher->user->name }}">
 
                    <a target="_blank" href="{{ $teacher->website }}" class="mt-8 font-bold bg-primary-500 shadow px-4 text-white border-2 rounded-none border-primary-500 flex justify-center items-center w-full py-2">
 

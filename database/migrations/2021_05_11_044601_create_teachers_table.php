@@ -21,7 +21,7 @@ class CreateTeachersTable extends Migration
 
             $table->string('image');
             $table->text('description');
-            $table->string('website');
+            $table->string('website')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('linkedin')->nullable();

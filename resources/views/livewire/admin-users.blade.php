@@ -35,6 +35,9 @@
                                     <div class="font-semibold text-left">Imagen</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-left">Docente</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
                                     <div class="font-semibold text-left">Fecha</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap">
@@ -59,9 +62,28 @@
 
                                     </td>
                                     <td class="p-2 whitespace-nowrap">
+                                        @if($user->teacher)
+                                            <div class="text-left">
+                                                <i class="fas fa-chalkboard-teacher text-green-500"></i>
+                                            </div>
+                                        @else
+                                            <div class="text-left">
+                                                <i class="fas fa-chalkboard-teacher text-red-500"></i>
+                                            </div>
+                                        @endif
+
+                                    </td>
+                                    <td class="p-2 whitespace-nowrap">
                                         <div class="text-left">{{ date('d/m/Y', strtotime($user->updated_at)) }}</div>
                                     </td>
                                     <td class="p-2 whitespace-nowrap flex items-center justify-around">
+                                        <form action="{{ route('admin.teachers.add', $user) }}" method="POST">
+                                            @csrf
+                                            <button class="btn" type="submit">
+                                                <i class="fas fa-chalkboard-teacher"></i>
+                                            </button>
+
+                                        </form>
                                         <a class="btn" href="{{ route('admin.users.edit', $user) }}">
                                             <i class="far fa-edit"></i>
                                         </a>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Teacher;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,7 +20,7 @@ class TeacherController extends Controller
 
     public function create()
     {
-        return view('admin.teachers.create');
+        return redirect()->route('admin.users.index');
     }
 
 
@@ -103,7 +104,30 @@ class TeacherController extends Controller
 
     public function destroy(Teacher $teacher)
     {
+        $user = $teacher->user;
+        $user->teacher_user = 0;
+        $user->save();
         $teacher->delete();
         return redirect()->route('admin.teachers.index');
+    }
+
+//  TODO arreglar slug de usuarios y docente para evitar que se repitan al momento de crear un usuario o docente
+    public function add(User $user){
+
+
+        if($user->teacher_user){
+            return redirect()->route('admin.users.index')->with('info','El usuario ya es docente');
+        }
+        $user->teacher_user = 1;
+        $user->save();
+        $teacher = Teacher::create([
+            'title' => 'Profesor',
+            'slug' => $user->slug,
+            'user_id' => $user->id,
+            'description' => 'Debe escribir su descripción aquí por favor.',
+            'image' => 'https://www.clinicadentalceballos.com/wp-content/uploads/2018/10/ortodoncia-malaga-user-not-found.jpg'
+        ]);
+
+        return redirect()->route('admin.users.index')->with('info','El usuario '. $user->name .' ya es docente');
     }
 }

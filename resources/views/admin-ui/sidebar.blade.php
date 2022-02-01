@@ -60,6 +60,26 @@
                 ],
             ],
         ],
+        [
+            'name' => 'Cursos',
+            'icon' => 'fas fa-book-open',
+            'route' => route('admin.courses.index'),
+            'active'=> request()->routeIs('admin.courses.*'),
+            'links' => [
+                [
+                    'name' => 'Ver cursos',
+                    'route' => route('admin.teachers.index'),
+                    'active'=> request()->routeIs('admin.courses.index'),
+                    'can' => 'Leer cursos'
+                ],
+                [
+                    'name' => 'Crear curso',
+                    'route' => route('admin.teachers.create'),
+                    'active'=> request()->routeIs('admin.courses.create'),
+                    'can' => 'Crear cursos'
+                ],
+            ],
+        ],
     ];
 @endphp
 

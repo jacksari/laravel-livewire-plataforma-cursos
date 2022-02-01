@@ -6,6 +6,7 @@ Route::middleware(['can:Ver dashboard'])
     ->get('', [\App\Http\Controllers\Admin\HomeController::class, 'index'])
     ->name('index');
 
+// TODO agregar can al final
 
 
 Route::resource('roles', \App\Http\Controllers\Admin\RolController::class)->names('roles');

@@ -2,7 +2,7 @@
 
 <article class="bg-white rounded-md overflow-hidden shadow flex flex-col">
     <div class="relative bg-black">
-        <img src="{{asset(str_replace("public", "", $course->image->url))}}" alt="">
+        <img class="h-52 w-full object-cover object-center" src="{{ asset(str_replace("public", "storage", $course->image->url)) }}" alt="">
         <p class="absolute top-2 right-2 bg-primary-500 rounded text-white px-3">{{ $course->category->name }}</p>
     </div>
 

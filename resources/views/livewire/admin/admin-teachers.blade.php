@@ -40,6 +40,9 @@
                                     <div class="font-semibold text-left">Imagen</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-left">Estado</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
                                     <div class="font-semibold text-left">Fecha</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap">
@@ -68,6 +71,28 @@
                                         @if($user->teacher)
                                             <img class="text-center h-8 w-8 rounded-full object-cover" src="{{asset(str_replace("public", "storage", $user->teacher->image))}}" alt="{{ $user->name }}">
 
+                                        @endif
+
+                                    </td>
+                                    <td class="p-2 whitespace-nowrap">
+                                        @if($user->teacher)
+                                            @if(!$user->teacher->status)
+                                                <form action="{{ route('admin.teachers.toggle', $user->teacher) }}" method="POST">
+                                                    @csrf
+                                                    <button class="text-left" type="submit">
+                                                        <i class="far fa-angry text-red-500 text-lg"></i>
+                                                    </button>
+
+                                                </form>
+                                            @else
+                                                <form action="{{ route('admin.teachers.toggle', $user->teacher) }}" method="POST">
+                                                    @csrf
+                                                    <button class="text-left" type="submit">
+                                                        <i class="far fa-smile text-green-500 text-lg"></i>
+                                                    </button>
+
+                                                </form>
+                                            @endif
                                         @endif
 
                                     </td>

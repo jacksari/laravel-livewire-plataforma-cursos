@@ -12,6 +12,14 @@ Route::resource('roles', \App\Http\Controllers\Admin\RolController::class)->name
 
 Route::resource('users', \App\Http\Controllers\Admin\UserController::class)->names('users');
 
+
+
 Route::resource('teachers', \App\Http\Controllers\Admin\TeacherController::class)->names('teachers');
 
 Route::post('teachers/add-teacher/{user}', [\App\Http\Controllers\Admin\TeacherController::class, 'add'])->name('teachers.add');
+
+Route::post('teachers/toggle-status/{teacher}', [\App\Http\Controllers\Admin\TeacherController::class, 'toggleStatus'])->name('teachers.toggle');
+
+
+
+Route::resource('courses', \App\Http\Controllers\Admin\CourseController::class)->names('courses');

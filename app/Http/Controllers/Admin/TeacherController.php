@@ -130,4 +130,14 @@ class TeacherController extends Controller
 
         return redirect()->route('admin.users.index')->with('info','El usuario '. $user->name .' ya es docente');
     }
+
+    public function toggleStatus(Teacher $teacher){
+        if($teacher->status){
+            $teacher->status = 0;
+        } else{
+            $teacher->status = 1;
+        }
+        $teacher->save();
+        return redirect()->route('admin.teachers.index');
+    }
 }

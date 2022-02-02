@@ -24,3 +24,6 @@ Route::post('teachers/toggle-status/{teacher}', [\App\Http\Controllers\Admin\Tea
 
 
 Route::resource('courses', \App\Http\Controllers\Admin\CourseController::class)->names('courses');
+
+Route::get('/courses/create/teacher/{teacher}', [\App\Http\Controllers\Admin\CourseController::class,'createForTeacher'])
+    ->name('courses.teachers');

@@ -103,6 +103,9 @@
 
                                     </td>
                                     <td class="p-2 whitespace-nowrap flex items-center justify-around">
+                                        <a class="btn" href="{{ route('admin.courses.teachers', $user->teacher) }}">
+                                            <i class="fas fa-chalkboard-teacher"></i>
+                                        </a>
                                         <a class="btn" href="{{ route('admin.teachers.edit', $user->teacher) }}">
                                             <i class="far fa-edit"></i>
                                         </a>

@@ -28,6 +28,18 @@
     @enderror
 </div>
 
+{{-- TODO agregar video como archuvo y no un link de youtube --}}
+
+<div class="w-full py-1">
+    {!! Form::label('video', 'Video: ', ['class' => 'label-input']) !!}
+    <div class="my-1 bg-white p-1 flex border border-gray-200 rounded">
+        {!! Form::text('video', null, ['class' => 'input-form'. ($errors->has('video') ? ' border-primary-500 border-2' : ''), 'placeholder' => 'Escriba el código de youtube']) !!}
+    </div>
+    @error('video')
+    <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
+    @enderror
+</div>
+
 
 <div class="w-full py-1 mb-4">
     <div class="mb-1">

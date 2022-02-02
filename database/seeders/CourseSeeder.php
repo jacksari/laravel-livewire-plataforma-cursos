@@ -38,15 +38,15 @@ class CourseSeeder extends Seeder
             Audience::factory(4)->create([
                 'course_id' => $course->id,
             ]);
-            $sections = Section::factory(3)->create([
+            $sections = Section::factory(rand(3,6))->create([
                 'course_id' => $course->id,
             ]);
             foreach ($sections as $section){
-                $lessons = Lesson::factory(2)->create([
+                $lessons = Lesson::factory(rand(3,6))->create([
                     'section_id' => $section->id,
                 ]);
                 foreach ($lessons as $lesson){
-                    Description::factory(2)->create([
+                    Description::factory(rand(3,6))->create([
                         'lesson_id' => $lesson->id,
                     ]);
                 }

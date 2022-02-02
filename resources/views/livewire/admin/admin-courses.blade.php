@@ -27,6 +27,9 @@
                                     <div class="font-semibold text-left">#</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-left">Imagen</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
                                     <div class="font-semibold text-left">Título</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap">
@@ -57,6 +60,13 @@
                                 <tr>
                                     <td class="p-2 whitespace-nowrap">
                                         <div class="text-left">{{ $key + 1 }}</div>
+                                    </td>
+                                    <td class="p-2 whitespace-nowrap">
+                                        @if($course->image)
+                                            <img class="text-center h-8 w-8 object-cover" src="{{ asset(str_replace("public", "storage", $course->image->url)) }}"/>
+                                        @endif
+
+
                                     </td>
                                     <td class="p-2 whitespace-nowrap">
                                         <div>

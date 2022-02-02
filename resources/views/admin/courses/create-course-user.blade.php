@@ -5,12 +5,14 @@
     </x-slot>
 
     <section class="bg-gray-100 text-gray-600 px-2 sm:px-4 py-4 sm:py-8">
-        <div class="container">
+        <div class="container grid grid-cols-4 gap-4">
+
+            @include('admin.courses.partials.aside')
             {{--w-full max-w-2xl mx-auto--}}
-            <div class="w-full max-w-7xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
+            <div class="col-span-3 w-full max-w-7xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
 
                 <div class="p-3 sm:px-5 sm:py-4 border-b border-gray-100 flex items-center justify-between">
-                    <h2 class="font-semibold text-gray-800 hidden sm:block">Editar curso</h2>
+                    <h2 class="font-semibold text-gray-800 hidden sm:block">Crear curso</h2>
                     <div class="flex items-center  items-center">
                         {{-- TODO crear page crear usuario admin --}}
                         <a class="flex items-center justify-center" href="{{ route('admin.courses.index') }}">

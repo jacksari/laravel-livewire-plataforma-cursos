@@ -73,25 +73,28 @@
 <div class="w-full py-1 mb-4">
     <div class="h-full items-center">
         {!! Form::label('image', 'Imagen: ', ['class' => 'label-input mr-8 self-start']) !!}
-        <div class="grid grid-cols-2 mt-2">
+        <div class="grid grid-cols-5 mt-2">
             @if(isset($course))
-                <img id="picture-teacher" class="h-60 w-full rounded-md object-cover object-center" src="{{ asset(str_replace("public", "storage", $course->image->url)) }}">
+                <img id="picture-teacher" class="col-span-3 h-60 w-full rounded-md object-cover object-center" src="{{ asset(str_replace("public", "storage", $course->image->url)) }}">
             @else
-                <img id="picture-teacher" class="h-60 w-full rounded-md object-cover object-center" src="https://www.azendportafolio.com/static/img/not-found.png" alt="">
+                <img id="picture-teacher" class="col-span-3 h-60 w-full rounded-md object-cover object-center" src="https://www.azendportafolio.com/static/img/not-found.png" alt="">
 
             @endif
-            <div class="flex-1 space-y-2 ml-8">
+            <div class="col-span-2 flex-1 space-y-2 ml-8">
                 <label class="text-sm font-bold text-gray-500 tracking-wide">Attach Document</label>
                 <div class="flex items-center justify-center w-full">
                     <label class="flex flex-col rounded-lg border-4 border-dashed w-full h-40 p-5 group text-center">
                         <div class="h-full w-full text-center flex flex-col items-center justify-center items-center  ">
                             <p class="pointer-none text-gray-500 "><span class="text-sm">Drag and drop</span> files here <br /> or <a href="" id="" class="text-blue-600 hover:underline">select a file</a> from your computer</p>
                         </div>
-                        {!! Form::file('image', ['class' => 'hidden']) !!}
+                        {!! Form::file('image', ['class' => 'hidden', 'accept' => 'image/*']) !!}
                     </label>
                 </div>
             </div>
         </div>
 
     </div>
+    @error('image')
+    <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
+    @enderror
 </div>

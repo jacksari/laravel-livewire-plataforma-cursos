@@ -2,7 +2,7 @@
     @apply max-w-7xl mx-auto px-4;
 }
 .btn{
-    @apply bg-white shadow px-4 py-1 rounded-lg text-gray-700 font-medium;
+    @apply bg-white shadow px-4 py-1 rounded-lg text-gray-700 font-medium cursor-pointer;
 }
 .btn-primary{
     @apply bg-primary-500 rounded-md px-4 py-1 text-center border-2 border-primary-500 text-white hover:bg-primary-600 transition duration-500 ease-in-out cursor-pointer;
@@ -214,6 +214,13 @@
 
 .input-form:focus{
     @apply border-0 ring-0 border-transparent ;
+}
+
+.input-section{
+    width: auto !important;
+}
+.input-lesson{
+    border: 1px solid rgba(229, 231, 235, 0.6) !important;
 }
 
 .ck .ck-editor {

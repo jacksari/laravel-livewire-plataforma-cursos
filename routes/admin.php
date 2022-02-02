@@ -27,3 +27,6 @@ Route::resource('courses', \App\Http\Controllers\Admin\CourseController::class)-
 
 Route::get('/courses/create/teacher/{teacher}', [\App\Http\Controllers\Admin\CourseController::class,'createForTeacher'])
     ->name('courses.teachers');
+
+Route::get('/courses/{course}/sections', [\App\Http\Controllers\Admin\CourseController::class,'sections'])
+    ->name('courses.sections');

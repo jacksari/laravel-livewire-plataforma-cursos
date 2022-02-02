@@ -33,8 +33,8 @@ class CourseController extends Controller
             'level_id' => 'required',
             'category_id' => 'required',
             'price_id' => 'required',
-            'slug' => 'required',
-            'image' => 'required'
+            'slug' => 'required|unique:courses,slug',
+            'image' => 'required|image',
         ]);
 
         if ($request->file('image')){
@@ -50,7 +50,7 @@ class CourseController extends Controller
             'level_id' => $request->level_id,
             'category_id' => $request->category_id,
             'price_id' => $request->price_id,
-            'slug' => $request->slug,
+            'slug' => 'required|unique:courses,slug,' . $course->id,
             'video' => '78701544',
             'teacher_id' => $request->teacher_id
         ]);
@@ -84,6 +84,7 @@ class CourseController extends Controller
             'category_id' => 'required',
             'price_id' => 'required',
             'slug' => 'required',
+            'image' => 'required|image',
         ]);
 
         $course->update($request->all());
@@ -122,5 +123,9 @@ class CourseController extends Controller
         $levels = Level::pluck('name','id');
         $prices = Price::pluck('name','id');
         return view('admin.courses.create-course-user', compact('teacher','categories','levels','prices'));
+    }
+
+    public function sections(Course $course){
+        return view('admin.courses.section', compact('course'));
     }
 }

@@ -1,5 +1,5 @@
 <div>
-    <div class="bg-white mb-3 px-4 py-3 shadow">
+    <div class="bg-white mb-3 px-4 py-4 shadow">
         @if($lesson->id)
 
             <form wire:submit.prevent="update" class="w-full" action="">
@@ -69,6 +69,11 @@
                             <i class="far fa-trash-alt"></i>
                         </p>
                     </div>
+
+                </div>
+
+                <div>
+                    <livewire:admin.lesson-description :lesson="$item" :key="$item->id">
                 </div>
 
 

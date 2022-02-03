@@ -13,6 +13,8 @@ class CourseLesson extends Component
     public $lesson;
     public $platforms;
 
+    protected $listeners = ['lessonRender' => 'lessonRender'];
+
     protected $rules = [
         'lesson.name' => 'required',
         'lesson.platform_id' => 'required',
@@ -52,5 +54,10 @@ class CourseLesson extends Component
 
     public function cancel(){
         $this->lesson = new Lesson();
+    }
+
+    public function lessonRender(){
+        //dd(Course::find($this->course->id)->sections);
+        $this->item = Lesson::find($this->item->id);
     }
 }
